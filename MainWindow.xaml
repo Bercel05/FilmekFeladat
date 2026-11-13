@@ -1,0 +1,36 @@
+﻿<Window x:Class="FilmekFeladat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FilmekFeladat"
+        mc:Ignorable="d"
+        Title="Filmek" Height="450" Width="750">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Margin="0,0,10,0">
+            <Button Content="Filmek betöltése" Height="28" Margin="0,0,0,5" Click="BtnBetoltes_Click"/>
+            <Button Content="Hány film van?" Height="28" Margin="0,0,0,5" Click="BtnHanyFilm_Click"/>
+            <Button Content="Leghosszabb film?" Height="28" Margin="0,0,0,5" Click="BtnLeghosszabb_Click"/>
+            <Button Content="Átlag értékelés" Height="28" Margin="0,0,0,5" Click="BtnAtlag_Click"/>
+            <Button Content="Csak sci-fi" Height="28" Margin="0,0,0,5" Click="BtnScifi_Click"/>
+            <Button Content="Csak címek" Height="28" Margin="0,0,0,5" Click="BtnCimek_Click"/>
+            <Button Content="Rendezés cím szerint" Height="28" Margin="0,0,0,10" Click="BtnRendezes_Click"/>
+
+            <ProgressBar x:Name="pbHaladas" Height="20" Value="0" Maximum="100"/>
+        </StackPanel>
+
+        <DataGrid x:Name="dgFilmek" Grid.Column="1" AutoGenerateColumns="False" CanUserAddRows="False" SelectionMode="Single" SelectionChanged="DgFilmek_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Cím" Binding="{Binding Cim}" Width="*" />
+                <DataGridTextColumn Header="Műfaj" Binding="{Binding Mufaj}" Width="90" />
+                <DataGridTextColumn Header="Hossz" Binding="{Binding Hossz}" Width="70" />
+                <DataGridTextColumn Header="Értékelés" Binding="{Binding Ertekeles}" Width="80" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
